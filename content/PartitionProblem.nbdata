@@ -1,0 +1,7 @@
+Title: An Implementation of Euler's Partition Function P(n) in Python
+Date: 2019-11-26 12:00
+Category: python
+Tags: python, jupyter, euler
+Slug: euler-partition-function
+Authors: Kyle Kizirian
+Summary: Implementing, profiling, and testing Euler's P(n) in Python
