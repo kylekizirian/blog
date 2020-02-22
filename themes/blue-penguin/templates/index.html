@@ -1,0 +1,17 @@
+<style>.pd{width:4em;flex-shrink:0;padding-bottom:.9em}.par div{display:flex}</style>
+
+{% extends "base.html" %}
+
+{% block content %}
+
+{% set recent = articles if not all_articles else all_articles %}
+<div class=par>
+<ul id="recent-posts">
+{% for a in recent %}
+    {% set year = a.date.year|string %}
+    {% set month = a.date.month|string %}
+    <div><div class=pd>{{ month.zfill(2) }}/{{ year[-2:] }}</div><a href="{{ SITEURL }}/{{ a.url }}">{{ a.title }}</a></div>
+{% endfor %}
+</ul>
+</div>
+{% endblock %}
