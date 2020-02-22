@@ -1,0 +1,7 @@
+Title: Zeckendorf's theorem and property-based testing
+Date: 2019-2-22 12:00
+Category: python
+Tags: python, testing
+Slug: zeckendorf-and-hypothesis
+Authors: Kyle Kizirian
+Summary: Zeckendorf's theorem and test-case generation with Hypothesis
