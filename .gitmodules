@@ -5,6 +5,3 @@
 	path = output
 	url = https://github.com/kylekizirian/kylekizirian.github.io.git
     ignore = all
-[submodule "themes/blue-penguin"]
-	path = themes/blue-penguin
-	url = https://github.com/jody-frankowski/blue-penguin.git
