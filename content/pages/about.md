@@ -7,7 +7,7 @@ Slug: ../about
 Authors: Kyle Kizirian
 
 <p> My name is Kyle Kizirian, I am a full-time research engineer at Georgia
-Tech Research Institute. I have a B.S. Computer Enginering (Highest Honors)
+Tech Research Institute. I have a B.S. Computer Engineering (Highest Honors)
 from Georgia Tech and an M.S. Electrical and Computer Engineering from Georgia
 Tech. My interests are in computer architecture, software engineering, and
 sensor fusion</a>.</p>
