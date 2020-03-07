@@ -33,6 +33,18 @@ SITEMAP = {
     }
 }
 
+STATIC_PATHS = [
+    "extra",
+]
+
+EXTRA_PATH_METADATA = {
+    "extra/googlef7b4cc06e381ef29.html": {"path": "googlef7b4cc06e381ef29.html"},
+}
+
+ARTICLE_EXCLUDES = [
+    "extra",
+]
+
 MARKUP = ('md', 'ipynb')
 
 IGNORE_FILES = [".ipynb_checkpoints"]  
