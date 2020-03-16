@@ -1,0 +1,7 @@
+Title: Time-slicing applications with SIGCONT and SIGSTOP
+Date: 2020-03-15 12:00
+Category: python
+Tags: python
+Slug: sigcont-and-sigstop
+Authors: Kyle Kizirian
+Summary: Using SIGSTOP and SIGCONT signals to control subprocesses.
