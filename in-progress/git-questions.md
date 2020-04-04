@@ -1,28 +1,47 @@
 # Asking questions about the git history
 
-I've found parsing through a git repo's history to be an excellent way
-to learn both git and the unix shell. Git's interface is designed to be
-shell friendly and it's fun to figure out how to get answers out of your
-git history.
+What percent of all of CPython's commits were made by the top ten
+commit authors? And how many commits exist in CPython's history, anyways?
+10,000? 100,000? 1,000,000? 
 
-Let's look at a couple of questions we might want to ask and how we can
-compose shell commands to get answers.
+Parsing through a git repo's history is an excellent way to learn both
+git and the unix shell. Git's interface is designed to be shell friendly
+and it's fun to figure out how to get answers out of your git history.
 
-We'll look at CPython's history because it's particularly interesting.
-Unfortunately, it's also particularly huge.
+Let's look at pulling a few interesting stats out of CPython
 
-## How many commits are in the entire history?
+1. How many commits are in CPython's history?
+2. How many different people have committed to CPython?
+3. Who are the top 10 committers?
+4. What % of all commits are from the top 10 committers>
+
+## How many commits are in CPython's history?
 
 The all-important `git rev-list` lists all commit hashes reachable from
-the given commit on their own line. `wc -l` counts the number of lines
-in stdin so combining the two will print the number of commits in our
-history.
+the given commit. `wc -l` counts the number of lines
+in stdin so combining the two will give us the total number of commits. 
 
 ```
 git rev-list HEAD | wc -l
 ```
 
-## How many people have committed to this repo?
+## How many different people have committed to CPython?
+
+We can use `git show` to extract information about a particular commit.
+The flag `--no-patch` instructs `git show` not to print the commit's
+diff and the flag and `--format=%an` will print just a single line
+with the author's name.
+
+Running this command over CPython's history prints the author
+for all 100,000 (TODO FILL IN) commits. Let's look first at just
+the last 10 commit authors.
+
+```
+git rev-list HEAD -n 10 | while read commit; do git --no-pager show --no-patch --format='%an' $commit; done
+```
+
+This looks good but we want the number of unique authors in our history
+so we can. 
 
 `git show` takes a commit and can print a variety of information about
 the commit. By default it will print the commit message, the diff from
@@ -36,9 +55,6 @@ authors to commit to CPython.
 The output of `git show` also displays in a paged output akin to
 `less`. To get the output sent to stdout we can supply `--no-pager`. 
 
-```
-git rev-list HEAD -n 10 | while read commit; do git --no-pager show --no-patch --format='%an' $commit; done
-```
 
 Now we've got an output with just the commit author on each line. What
 we want is the total number of commit authors which we can get from the
@@ -52,10 +68,10 @@ git rev-list head -n 10 | while read commit; do git --no-pager show --no-patch -
 Looks right. Try with the entire git history.
 
 ```
-git rev-list head -n 1000 | while read commit; do git --no-pager show --no-patch --format='%an' $commit; done | sort | uniq | wc -l
+git rev-list head | while read commit; do git --no-pager show --no-patch --format='%an' $commit; done | sort | uniq | wc -l
 ```
 
-2. Who has the most commits
+## Who are the top 10 committers? 
 
 How to print just the author's name from a commit
 
@@ -107,7 +123,7 @@ Check if it's still running later with
 jobs
 ```
 
-3. % of commits by top few committers
+## What % of all commits are from the top 10 committers?
 
 Get # of commits with
 
@@ -121,7 +137,7 @@ Get # of commits from top authors from top_authors.txt
 cat top_authors.txt | while read author; do cut -d ' ' -f 1 ; done
 ```
 
-Use bc awk and bc to get % of commits
+Use awk and bc to get % of commits
 
 ```
 git rev-list head | wc -l | read -d '' num_commits ; cat top_authors.txt | while read author; do cut -d ' ' -f 1 | awk -v num_commits=$num_commits '{print $0 "*100/" num_commits}' | bc -l ; done
@@ -133,7 +149,6 @@ Find what % of total commits is taken up by top 10 commit authors
 git rev-list head | wc -l | read -d '' num_commits ; cat top_authors.txt | while read author; do cut -d ' ' -f 1 | awk -v num_commits=$num_commits '{print $0 "*100/" num_commits}' | bc -l | paste -s -d+ - | bc -l; done
 ```
 
-4. How many times has a specific file changed?
 
 ## Other resources
 
