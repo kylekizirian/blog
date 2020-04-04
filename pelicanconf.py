@@ -47,7 +47,7 @@ ARTICLE_EXCLUDES = [
 
 MARKUP = ('md', 'ipynb')
 
-IGNORE_FILES = [".ipynb_checkpoints"]  
+IGNORE_FILES = [".ipynb_checkpoints"]
 
 # Feed generation is usually not desired when developing
 FEED_ALL_ATOM = None
