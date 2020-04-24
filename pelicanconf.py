@@ -6,8 +6,7 @@ AUTHOR = 'Kyle Kizirian'
 SITENAME = 'Kizirian'
 SITEURL = ''
 
-THEME = 'themes/blue-penguin'
-
+THEME = 'theme'
 PATH = 'content'
 
 TIMEZONE = 'America/New_York'
@@ -67,6 +66,8 @@ SOCIAL = (('Github', 'https://www.linkedin.com/in/kyle-kizirian-001a60102/'),
           ('Linkedin', 'https://github.com/kylekizirian'),)
 
 DEFAULT_PAGINATION = 10
+
+ABOUT_PAGE = 'about.html'
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True

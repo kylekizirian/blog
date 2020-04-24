@@ -1,10 +1,6 @@
-Title: About
-Date: 2019-11-26 12:00
-Modified: 2019-11-26 12:00
-Category: About
-Tags: about
-Slug: ../about
-Authors: Kyle Kizirian
+title: About
+slug: ../about
+Template: about
 
 <p> My name is Kyle Kizirian, I'm a research engineer at Georgia
 Tech Research Institute</a>.</p>
