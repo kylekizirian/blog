@@ -54,7 +54,11 @@ if __name__ == "__main__":
         keywords_with_regex.append(Keyword(foo, keyword.function))
 
     # does add_example match any of these regexes?
-    matching_keywords = [keyword for keyword in keywords_with_regex if re.fullmatch(keyword.name, add_example)]
+    matching_keywords = [
+        keyword
+        for keyword in keywords_with_regex
+        if re.fullmatch(keyword.name, add_example)
+    ]
 
     if len(matching_keywords) != 1:
         raise Exception

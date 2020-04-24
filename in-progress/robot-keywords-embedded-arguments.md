@@ -4,7 +4,7 @@ Let's look at how Robot Framework takes a statement like this
 Add 3 and 4
 ```
 
-And turns it into a function call like
+And turns it into a function call like this
 
 ```python
 add('1', '2')
