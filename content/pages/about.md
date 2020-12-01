@@ -2,8 +2,8 @@ title: About
 slug: ../about
 Template: about
 
-<p> My name is Kyle Kizirian, I'm a research engineer at Georgia
-Tech Research Institute</a>.</p>
+<p> My name is Kyle Kizirian, I'm a software engineer and Georgia Tech
+grad</a>.</p>
 
 <p>Find me on</p>
 
